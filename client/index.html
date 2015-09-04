@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html ng-app='shortly'>
-  <head>
-    <meta charset="utf-8" />
-    <title>Shortly</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-  </head>
-  <body>
-    <h1>Shortly</h1>
+<html lang="en" ng-app="koupler">
+<head>
+  <meta charset="UTF-8">
+  <title>Koupler</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+<body>
+<h1> Koupler </h1>
 
-    <!-- the ng-view directive is where our templates will be loaded into when navigated to -->
-    <div ng-view></div>
+<div ng-view></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
-    
-    <script src="app/auth/auth.js"></script>
-    <script src="app/links/links.js"></script>
-    <script src="app/shorten/shorten.js"></script>
-    <script src="app/services/services.js"></script>
-    <script src="app/app.js"></script>
-  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+
+<script src="app/auth/auth.js"></script>
+<script src="app/activityPickerCtrl/activityPickerCtrl.js"></script>
+<script src="app/factories/factories.js"></script>
+<script src="app/app.js"></script>
+  
+</body>
 </html>
