@@ -17,7 +17,7 @@ angular.module('koupler.auth', [])
           console.error(err);
         });
   };
-
+ 
   $scope.signup = function () {
     Auth.signup($scope.user)
         .then(function (token){
