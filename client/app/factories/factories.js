@@ -2,19 +2,23 @@ angular.module('koupler.factories', [])
 
 .factory('Activities', function($http) {
   var activities = [
-                    // 'Hiking',
-                    // 'Dinner',
-                    // 'Opera',
-                    // 'Dancing', 
-                    // 'Music Show'
+                    {'name': 'Hiking'},
+                    {'name': 'Dinner'},
+                    {'name': 'Opera'},
+                    {'name': 'Dancing'}, 
+                    {'name': 'Music Show'}
                   ];
   var getActivities = function() {
     //make a get request to the server for for all activities in act table
       //populate activities array with these
   };
   var getCouples = function (activity) {
-    //make a post request to the server with the activity chosen
-      //give the response to Users factory/controller
+    $http.post('///', {activity: activity}).
+      .then(function(response) {
+        console.log('all good, should redirect to match.html');
+      }, function(response) {
+        console.log('sorry, there was an error ', response.statusText);
+      });
   };
 
   return {
