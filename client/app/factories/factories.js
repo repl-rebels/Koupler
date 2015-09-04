@@ -1,4 +1,4 @@
-angular.module('koupler.services', [])
+angular.module('koupler.factories', [])
 
 .factory('Activities', function($http) {
   var activities = [
