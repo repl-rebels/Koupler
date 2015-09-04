@@ -1,8 +1,8 @@
 angular.module('koupler.activities', [])
 
 .controller('ActivityPickerCtrl', function($scope, Activities) {
-  //need to listen for an activity getting chosen
-  var chosenActivity = //to be completed
-  //need to call getCouples from own factory
-  $scope.getCouples(chosenActivity);
+  //extend the scope with the factory
+  angular.extend($scope, Activities);
+  //immediately get all the activities, so that activities can be populated on page
+  $scope.getActivities();
 })
