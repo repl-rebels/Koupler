@@ -1,5 +1,8 @@
 ### node etc ###
 
+# File stores
+.DS_Store
+
 # Logs
 logs
 *.log
