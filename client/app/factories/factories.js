@@ -1,6 +1,6 @@
 angular.module('koupler.factories', [])
 
-.factory('Activities', function($http) {
+.factory('Activities', function($scope, $window, $location, $http) {
   var activities = [
                     {'name': 'Hiking'},
                     {'name': 'Dinner'},
@@ -13,9 +13,12 @@ angular.module('koupler.factories', [])
       //populate activities array with these
   };
   var getCouples = function (activity) {
-    $http.post('///', {activity: activity}).
+    var token = $window.localStorage.getItem('JWT');
+    $http.post('/activities/match', {activity:activity, token: token});
       .then(function(response) {
-        console.log('all good, should redirect to match.html');
+        console.log('couple sent back by database is ' + response);
+        $window.localStorage.setItem('coupleChosen', response); //expected to save chosenCouple in state of the app
+        $location.path('/match');
       }, function(response) {
         console.log('sorry, there was an error ', response.statusText);
       });
