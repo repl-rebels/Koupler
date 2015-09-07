@@ -7,11 +7,11 @@ module.exports = function (app, express) {
 
   app.use(express.static(__dirname + './../../client'));
 
-  app.use('/api/couples', coupleRouter);
-  app.use('/api/match', matchRouter);
+  app.use('/couples', coupleRouter);
+  app.use('/activities', activityRouter);
 
   require('../couples/coupleRoute.js')(coupleRouter);
-  require('../matches/matchRoutes.js')(matchRouter);
+  require('../activities/activityRoutes.js')(activityRouter);
 
 
 };
