@@ -41,4 +41,31 @@ module.exports = {
     })
   },
 
+  signin: function(req,res,next){
+    //get the username and password Hash from the DB
+    Couple.getCouple([req.body.username], function(err, result){
+      if(err){
+        console.error('user not found')
+      }
+      //check if the password Hash === typed in password 
+      bcrypt.compare(req.body.password, result[0][hash], function(err, res){
+        if(err){
+          res.status(401).end('Either username or password was incorrect');
+        }
+        //if typed in password checks out, create a token
+        else if(res === true){
+          //creating token with username as payload
+          var jwtSecret = 'a;lskdjf;laksdjf';
+          var token = jwt.sign({
+            username: req.body.usernameSignup
+          }, jwtSecret);
+          res.send({
+            //sending back token for client processing
+            token: token
+          });
+        }
+      })
+    })
+  }
+
 
