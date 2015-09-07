@@ -3,7 +3,7 @@ var helpers = require('./helpers.js');
 module.exports = function (app, express) {
 
   var coupleRouter = express.Router();
-  var matchRouter = express.Router();
+  var activityRouter = express.Router();
 
   app.use(express.static(__dirname + './../../client'));
 
@@ -15,3 +15,7 @@ module.exports = function (app, express) {
 
 
 };
+
+{
+
+}
