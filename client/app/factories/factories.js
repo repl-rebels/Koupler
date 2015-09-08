@@ -1,27 +1,11 @@
 angular.module('koupler.factories', [])
 
-.factory('userFactory', function($http){
-  var getAllUsersDetails = function(){
-    return $http({
-      method: 'GET',
-      url: '//////' //to be filled out. FROM ALEX.
-    })
-    .then(function(data){
-      return data;
-    });
-  };
-
-  return {
-    getAllUsers: getAllUsersDetails
-  };
-})
-
 .factory('Activities', function($scope, $window, $location, $http) {
   var activities = [
                     {'name': 'Hiking'},
                     {'name': 'Dinner'},
                     {'name': 'Opera'},
-                    {'name': 'Dancing'}, 
+                    {'name': 'Dancing'},
                     {'name': 'Music Show'}
                   ];
   var getActivities = function() {

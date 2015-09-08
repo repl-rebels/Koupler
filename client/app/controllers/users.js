@@ -1,18 +1,15 @@
 angular.module('koupler.couples',[])
 
-.controller('userCtrl', function($scope, usersFactory){
+//ctrl name changed from useCtrl to couplesCtrl
+.controller('CouplesCtrl', function($scope, $window){
   $scope.data = {};
-  $scope.getDetails = function(){
-    Users.getAllUsersDetails()
-         .then(function(deets){
-          //TODO: map out the response from the server
-            $scope.data.deet1 = deets.deet1;
-            $scope.data.deet2 = deets.deet2;
-            $scope.data.deet3 = deets.deet3;
-         })
-         .catch(function(error){
-            console.error(error);
-         })
-  }
-  $scope.getDetails();
+
+  $scope.getCouple = function(){
+    var matchedCouple = $window.localStorage.getItem('coupleChosen');
+    $scope.data.name = matchedCouple.person_1_first_name + matchedCouple.person_2_first_name;
+    $scope.data.email = matchedCouple.email;
+    $scope.data.phone = matchedCouple.phone;
+  };
+
+  $scope.getCouple();
 });
