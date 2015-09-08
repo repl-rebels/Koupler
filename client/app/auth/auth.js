@@ -7,18 +7,21 @@ angular.module('koupler.auth', [])
   var user = {};
   //To Do add post request handlers to factories.js 
   $scope.signin = function() {
-    $http.post('/signin', {username: $scope.usernameSignIn, password: $scope.passwordSignIn})
-        .then(function (response) {
+    $http.post('/couples/signin', {
+        username: $scope.usernameSignIn, 
+        password: $scope.passwordSignIn
+      })
+      .then(function (response) {
         AuthTokenFactory.setToken(response.data.token);
         $location.path('/activities');
-    }, 
-    function(err){
-      console.log(err);
-    });
+      }, 
+      function(err){
+        console.log(err);
+      });
   };
 
   $scope.signup = function() {
-    $http.post('/signup', {
+    $http.post('/couples/signup', {
         username: $scope.usernameSignup, 
         password: $scope.passwordSignup,
         firstName1: $scope.firstName1Signup,
@@ -26,14 +29,15 @@ angular.module('koupler.auth', [])
         firstName2: $scope.firstName2Signup,
         lastName2: $scope.lastName2Signup,
         email: $scope.emailSignup,
-        phoneNumber: $scope.phoneNumberSignup})
-    .then(function(response) {
+        phoneNumber: $scope.phoneNumberSignup
+      })
+      .then(function(response) {
         AuthTokenFactory.setToken(response.data.token);
         $location.path('/activities');
       }, 
       function(err){
         console.log(err);
-    });
+      });
   };
 
   $scope.signout = function() {
