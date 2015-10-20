@@ -1,5 +1,5 @@
 
-*Visit Koupler at kouple.us*
+*Visit Koupler at koupler.xyz*
 
 Koupler is an app that matches couples interested in doing things together. We built it on the MEAN stack (mySQL, express, angular, node). Koupler is built with a client side and a server side, respectively the front-end and the back-end. I will use those terms interchangeably throughout this document. 
 
